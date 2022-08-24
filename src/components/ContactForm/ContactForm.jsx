@@ -8,7 +8,7 @@ function ContactForm() {
     const [name, setName] = useState("");
     const [number, setNumber] = useState("");
     const dispatch = useDispatch();
-    const contacts = useSelector(state => state.contacts.items);
+    const contacts = useSelector(state => state.contactsApi.items);
 
     const handleChange = (e) => {
         switch (e.target.name) {
