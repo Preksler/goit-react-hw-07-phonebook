@@ -1,17 +1,16 @@
 import PropTypes from 'prop-types';
 import { useDeleteContactMutation } from '../../../redux/mokeApi'
-import Photo from '../../../images/No-photo.png'
 import css from "./ContactElement.module.css"
 
 const ContactElement = ({ contactItem }) => {
-    const { id, name, phone } = contactItem;
+    const { id, name, phone, avatar } = contactItem;
     const [deleteContact] = useDeleteContactMutation();
     
     return (
         <li
             key={id}
             className={css.list__item}>
-            <img className={css.liat__avatar} src={Photo} alt="avatar" />
+            <img className={css.liat__avatar} src={avatar} alt="avatar" />
             <div>
                 
                 <div className={css.list__name}>{name}</div>
@@ -33,6 +32,7 @@ ContactElement.propTypes = {
         id: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
         phone: PropTypes.string.isRequired,
+        avatar: PropTypes.string.isRequired,
     })
 }
 

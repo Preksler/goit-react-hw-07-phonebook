@@ -9,10 +9,10 @@ const ContactList = ({ contacts }) => {
     
     return (
         <ul className={css.list}>
-            {filteredContacts.map(({ id, name, phone }) => {
+            {filteredContacts.map(({ id, name, phone, avatar }) => {
                 return (
-                    <ContactElement 
-                        contactItem={{ id, name, phone }}
+                    <ContactElement
+                        contactItem={{ id, name, phone, avatar }}
                         key={id}
                     />
                 )

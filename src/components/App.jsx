@@ -5,15 +5,20 @@ import Container from "./Container/Container";
 import { useGetAllContactsQuery } from "../redux/mokeApi"
 
 export function App() {
-  const { data=[] } = useGetAllContactsQuery();
+  const { data = [] } = useGetAllContactsQuery();
+  const isContacts = data.length > 0;
 
   return (
     <Container>
       <h1>Phonebook</h1>
       <ContactForm contacts={data} />
-      <h2>Contacts</h2>
-      <ContactFilter title="Find contacts by name" />
-      {data && <ContactList contacts={data} />}
+      {isContacts && (
+        <>
+          <h2>Contacts</h2>
+          <ContactFilter  title="Find contacts by name" />
+        </>
+      )}
+      <ContactList contacts={data} />
     </Container>
   )
 }
