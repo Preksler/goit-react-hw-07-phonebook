@@ -5,7 +5,7 @@ import Container from "./Container/Container";
 import { useGetAllContactsQuery } from "../redux/mokeApi"
 
 export function App() {
-  const { data } = useGetAllContactsQuery();
+  const { data=[] } = useGetAllContactsQuery();
 
   return (
     <Container>

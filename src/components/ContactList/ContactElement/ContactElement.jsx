@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { useDeleteContactMutation } from '../../../redux/mokeApi'
+import Photo from '../../../images/No-photo.png'
 import css from "./ContactElement.module.css"
 
 const ContactElement = ({ contactItem }) => {
@@ -10,8 +11,12 @@ const ContactElement = ({ contactItem }) => {
         <li
             key={id}
             className={css.list__item}>
-            <span className={css.list__name}>{name}:</span>
-            <span className={css.list__number}>{phone}</span>
+            <img className={css.liat__avatar} src={Photo} alt="avatar" />
+            <div>
+                
+                <div className={css.list__name}>{name}</div>
+                <div className={css.list__number}>{phone}</div>
+            </div>
             <button
                 className={css.list__btn}
                 type="button"

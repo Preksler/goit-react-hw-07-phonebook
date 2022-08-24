@@ -11,12 +11,19 @@
     margin-bottom: 0px;
 }
 
+.liat__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: block;
+    margin-right: 15px;
+}
+
 .list__name {
     font-weight: 600;
 }
 
 .list__number {
-    margin-left: 10px;
     font-weight: 500;
 }
 

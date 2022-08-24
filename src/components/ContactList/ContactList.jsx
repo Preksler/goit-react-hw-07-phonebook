@@ -1,11 +1,15 @@
-// import { useSelector } from "react-redux";
+import PropTypes from 'prop-types';
+import { useSelector } from "react-redux";
 import ContactElement from './ContactElement/ContactElement';
 import css from "./ContactList.module.css"
 
 const ContactList = ({ contacts }) => {
+    const filter = useSelector(state => state.filter.filter);
+    const filteredContacts = contacts.filter(contact => contact.name.toLowerCase().includes(filter.toLowerCase())).sort((a, b) => a.name.localeCompare(b.name));
+    
     return (
         <ul className={css.list}>
-            {contacts.map(({ id, name, phone }) => {
+            {filteredContacts.map(({ id, name, phone }) => {
                 return (
                     <ContactElement 
                         contactItem={{ id, name, phone }}
@@ -15,6 +19,10 @@ const ContactList = ({ contacts }) => {
             })}
         </ul>
     )
+}
+
+ContactList.propTypes = {
+    contacts: PropTypes.array,
 }
 
 export default ContactList;
