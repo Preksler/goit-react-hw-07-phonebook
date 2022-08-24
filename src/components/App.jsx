@@ -10,10 +10,10 @@ export function App() {
   return (
     <Container>
       <h1>Phonebook</h1>
-      <ContactForm />
+      <ContactForm contacts={data} />
       <h2>Contacts</h2>
       <ContactFilter title="Find contacts by name" />
-      <ContactList contacts={data} />
+      {data && <ContactList contacts={data} />}
     </Container>
   )
 }
