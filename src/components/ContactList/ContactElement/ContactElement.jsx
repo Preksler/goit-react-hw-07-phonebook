@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import toast from 'react-hot-toast';
 import { useDeleteContactMutation } from '../../../redux/mokeApi'
 import css from "./ContactElement.module.css"
 
@@ -20,7 +21,10 @@ const ContactElement = ({ contactItem }) => {
                 className={css.list__btn}
                 type="button"
                 id={id}
-                onClick={(e) => deleteContact(e.target.id)}>
+                onClick={(e) => {
+                    deleteContact(e.target.id);
+                    toast.success(`Contact ${name} is delete`);
+                }}>
                 Delete
             </button>
         </li>

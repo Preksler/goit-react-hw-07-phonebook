@@ -1,4 +1,5 @@
 import { useState } from "react";
+import toast from 'react-hot-toast';
 import { useAddContactMutation } from "../../redux/mokeApi"
 import css from "./ContactForm.module.css"
 
@@ -28,6 +29,7 @@ function ContactForm({ contacts }) {
             return contacts;
         }
         addContact({ name, phone });
+        toast.success(`Contact ${name} is add`);
         setName("");
         setPhone("");
     }
